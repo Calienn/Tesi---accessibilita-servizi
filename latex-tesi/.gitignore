@@ -1,0 +1,42 @@
+
+# ==========================================
+# LaTeX - File temporanei di compilazione
+# ==========================================
+
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.dvi
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.ilg
+*.ind
+*.idx
+
+# File temporanei degli editor
+*.swp
+*.swo
+*~
+*.bak
+
+
