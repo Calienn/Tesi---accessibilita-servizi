@@ -32,6 +32,7 @@
 *.ilg
 *.ind
 *.idx
+*.txt
 
 # File temporanei degli editor
 *.swp
