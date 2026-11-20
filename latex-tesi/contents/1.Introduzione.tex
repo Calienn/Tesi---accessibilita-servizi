@@ -32,7 +32,7 @@ Approfondendo quest'ultimo concetto, gli autori discutono di quanto sia difficil
 Prima di analizzare le componenti strutturali dell'accessibilità, è necessario definire alcune distinzioni terminologiche e concettuali, derivanti dalla letteratura, per inquadrare correttamente lo studio dei servizi primari \cite{mazzulla2024, benassai2026}:
 \begin{itemize}
     \item \textbf{Accessibilità spaziale all'interno del concetto multidimensionale di accesso}: il concetto generale di accesso ai servizi è intrinsecamente multidimensionale e comprende aspetti sia spaziali che non, come la possibilità di raggiungere le strutture, la disponibilità dei beni e delle prestazioni e la loro sostenibilità economica.
-    Nelle analisi territoriali, l'accessibilità spaziale si concentra sulle relazioni geografiche tra popolazione e servizi, considerando così le distanze, i tempi di percorrenza e la distribuzione delle opportunità raggiungibili (solo a seconda della metrica utilizzata). Benassai-Dalmau et al. ad esempio, distringuono l'accessibilità spaziale complessiva all'interno del problema più ampio, cioè dell'accesso alimentare, utilizzano tre metriche complementari per rappresentare la prossimitò, la disponibilità spaziale e la distribuzione dei mercati.
+    Nelle analisi territoriali, l'accessibilità spaziale si concentra sulle relazioni geografiche tra popolazione e servizi, considerando così le distanze, i tempi di percorrenza e la distribuzione delle opportunità raggiungibili (solo a seconda della metrica utilizzata). Benassai-Dalmau et al. ad esempio, distinguono l'accessibilità spaziale complessiva all'interno del problema più ampio, cioè dell'accesso alimentare, utilizzano tre metriche complementari per rappresentare la prossimità, la disponibilità spaziale e la distribuzione dei mercati.
     
     
     %come la disponibilità dell'offerta (\textit{availability}) e la sostenibilità economica dei prezzi per l'utente (\textit{affordability}) \cite{benassai2026}. 
@@ -116,12 +116,12 @@ Le misure basate sulla localizzazione analizzano l'accessibilità a livello aggr
 \begin{enumerate}
     \item \textbf{Misure di separazione spaziale o di distanza minima (\textit{Closeness/Minimum Distance})}:  misurano la distanza o il tempo di viaggio minimo dalla residenza al servizio primario più vicino \cite{battiston2024,wu2025,benassai2026}.
     Per calcolare i tempi di percorrenza si possono utilizzare diversi algoritmi di cammino minimo. 
-    Wu et al. utilizzano superfici \textit{raster di frizione} , dove i costi di attraversamento dipendono dalle caratteristiche della rete stradale, dalla copertura del suolo e dalla topografia, nel quale i tempi minimi vengono calcolati mediante una funzione di Google Earth Engine \textit{culativeCost}, basata su Dijkstra.\cite{wu2025}
+    Wu et al. utilizzano superfici \textit{raster di frizione} , dove i costi di attraversamento dipendono dalle caratteristiche della rete stradale, dalla copertura del suolo e dalla topografia, nel quale i tempi minimi vengono calcolati mediante una funzione di Google Earth Engine \textit{cumulativeCost}, basata su Dijkstra.\cite{wu2025}
     Battiston e Schifanella utilizzano invece una rappresentazione della rete di percorsi pedonali, ricavata da OpenStreetMap, e il motore di instradamento OSRM per calcolare i tempi di spostamento \cite{battiston2024}
     
     \begin{itemize}
         \item \textit{Vantaggi}: restituiscono un'unità di misura intuitiva (minuti o metri) e non richiedono la calibrazione di parametri comportamentali \cite{benassai2026}.
-        \item \textit{Svantaggi}: ignorano la dimensione dell'offerta (avere un solo servizio o dieci servizi a 5 minuti produce il medesimo risultato). Inoltre non descrivono necessariamente le scelte effettive degli individui, che possono dipendere da caratteristiche e preferenze non considerate dalla metrica \cite{bbenassai2026,tariverdi2023}.
+        \item \textit{Svantaggi}: ignorano la dimensione dell'offerta (avere un solo servizio o dieci servizi a 5 minuti produce il medesimo risultato). Inoltre non descrivono necessariamente le scelte effettive degli individui, che possono dipendere da caratteristiche e preferenze non considerate dalla metrica \cite{benassai2026,tariverdi2023}.
     \end{itemize}
        % Se volessimo misurare l'accessibilità in minuti la formula che dovremmo utilizzare è la seguente: T_i = minj Tij. Fissato un'origine (j) prendo il minore fra i tempi verso tutte le destinazioni
     \item \textbf{Misure di contorno o a opportunità cumulative (\textit{Contour/Cumulative Opportunities})}: 
@@ -148,7 +148,7 @@ Le misure basate sulla localizzazione analizzano l'accessibilità a livello aggr
          \end{itemize}
         
         \item \textbf{Misure che includono gli effetti di competizione}: vengono utili utilizzare queste misure quando la domanda potenziale supera o si distribuisce tra servizi con una capacità limitata (come ospedali, scuole, spazi verdi) la sola prossimità spaziale può non essere sufficiente a rappresentare l'accessibilità. \cite{geurs2004}
-        Uno degli approcci che considera questo rapporto è il metodo \textbf{Two-Step Floating Catchment Area} (2SFCA). Tale metoodo calcola inizialmente un rapporto tra capacità disponibile e popolazione potenzialmente servita per ciascuna localizzazione, aggreggando successivamente i rapporti delle strutture accessibili da ogni zona di origine. \cite{luo2003}
+        Uno degli approcci che considera questo rapporto è il metodo \textbf{Two-Step Floating Catchment Area} (2SFCA). Tale metodo calcola inizialmente un rapporto tra capacità disponibile e popolazione potenzialmente servita per ciascuna localizzazione, aggregando successivamente i rapporti delle strutture accessibili da ogni zona di origine. \cite{luo2003}
         Un secondo approccio differente è quello dato dai modelli probabilistici di scelta, come quello di Huff utilizzato da Tariverdi et al., che stimano la probabilità di selezionare una determinata struttura in funzione della sua attrattività e del costo di spostamento.
         Questi due approcci considerano quindi aspetti differenti dell'interazione tra utenti e servizi: il primo tra offerta e domanda potenziale, il secondo la distribuzione probabilistica delle scelte tra destinazioni alternative. \cite{luo2003,tariverdi2023}
         
@@ -166,25 +166,9 @@ Queste misure consentono di rappresentare vincoli che gli indicatori aggregati p
 %&In alcuni contesti, però, possono mancare dati socio-economici e sono state quindi proposte formulazioni basate sull'\textbf{entropia spaziale} \cite{benassai2026}.
 %L'entropia misura il grado di diversificazione e omogeneità delle varie opportunità attorno al cittadino: un'alta entropia indica la presenza di molteplici alternative di servizi accessibili in termini di percorrenza che offrono libertà di scelta al singolo utente. \cite{benassai2026}.
 Queste metriche hanno origine nella teoria microeconomica e dai modelli di scelta, valutano l'accessibilità attraverso i benefici associati alle opportunità disponibili. A differenza delle misure che considerano esclusivamente la distribuzione geografica dei servizi, questi approcci possono incorporare le preferenze degli individui e le carattereistiche delle varie alternative.
-Nelle misure fondate su probabilità è possibile utilizzare indicatori entropici. Per dare un esempio Benassai-Dalmau et al. propongono una misura basata sull'entropia di Shannon, applicata a probabilità di scelta dei mercati determinate esclusivamente dai tempi di percorrenza \cite{geurs2004,mazzulla2024}.
+Nelle misure fondate su probabilità è possibile utilizzare indicatori entropici. Per dare un esempio Benassai-Dalmau et al. propongono una misura basata sull'entropia di Shannon, applicata a probabilità di scelta dei mercati determinate esclusivamente dai tempi di percorrenza \cite{benassai2026}.
 In questo contesto maggiore è l'entropia più ho una distribuzione uniforme delle probabilità tra le alternative considerate, al contrario, un valore minore indica una maggiore concentrazione delle proabbilità su un numero limitato di destinazioni.
 La metrica non misura direttamente la diversità dei prodotti disponibili o l'utilità economica effettivamente percepita dai cittadini \cite{benassai2026}
-\section{I servizi Primari}
-Abbiamo parlato fin'ora di servizi primari, ma quali sono i servizi compresi?
-
-In letteratura, vengono spesso mappati come Punti di Interesse (\textit{Points of Interest} -- POI). La classificazione delle destinazioni dipende dagli obiettivi dello studio e dalle fonti informative disponibili.
-
-Wu et al, nell'analisi globale dell'accessibilità alle necessità e ai servizi quotidiani, adottano sei categorie operative di infrastrutture: \emph{Healthcare}, \emph{Education}, \emph{Living}, \emph{Entertainment}, \emph{pubblic transit} e \emph{Working}. La seguente descrizione riprende tali macro-categorie: \cite{wu2025}
-\begin{enumerate}
-    \item \textbf{Servizi abitativi e commerciali di base (\textit{Living})}: mercati alimentari, supermercati, negozi di beni di prima necessità e servizi postali o bancari 
-    \item \textbf{Assistenza sanitaria (\textit{Healthcare})}: ospedali, cliniche, ambulatori e presidi medici 
-    \item \textbf{Istruzione (\textit{Education})}: scuole di ogni ordine e grado, asili e strutture formative 
-    \item \textbf{Spazi verdi, cultura e svago (\textit{Entertainment \& Green})}: parchi urbani pubblici, aree verdi ricreative, impianti sportivi e luoghi di aggregazione 
-    \item \textbf{Trasporto pubblico (\textit{Public transit})}: fermate di autobus, tram, stazioni ferroviarie e metropolitane;
-    \item \textbf{Lavoro (\textit{Working})}: luoghi di impiego, uffici e poli produttivi .
-\end{enumerate}
-
-
 
 \section{Metodologie e applicazioni}
 Fin'ora abbiamo discusso delle varie metriche di calcolo dell'accessibilità in maniera approssimativa e puramente descrittiva.
@@ -195,11 +179,11 @@ Le informazioni così ottenute possono essere combinate secondo differenti formu
 
 \subsubsection{Origine e destinazioni}
 
-Sia $I$ l'insieme delle origini e $J$ l'insieme delle destinazioni. Con $i\in I$ si indica una località dalla quale ha origine una potenziale domanda, mentre con $j\in J$ si indica un'opportuntià o struttura raggiungibile.
+Sia $I$ l'insieme delle origini e $J$ l'insieme delle destinazioni. Con $i\in I$ si indica una località dalla quale ha origine una potenziale domanda, mentre con $j\in J$ si indica un'opportunità o struttura raggiungibile.
 L'origine non è solamente una zona residenziale, ma può anche una cella raster o nodi di una rete stradale. Per lo stesso motivo le destinazioni possono essere, a seconda dell'obiettivo dell'analisi, singoli punti di interesse, mercati, strutture sanitarie o altre attività \cite{luo2003,tariverdi2023,wu2025,benassai2026}
 Lo stesso schema matematico può essere applicato a categorie di servizi differenti, purchè le informazioni necessarie alla metrica selezionata siano disponibili.
 La scelta delle unità spaziali e dei punti rappresentativi influisce sui tempi stimati e sulle successive misure di accessibilità. Luo e Wang per esempio, utilizzano centroidi ponderati per la popolazione per rappresentare zone residenziali e localizzazione aggregate dei medici.
-Gli studi di Wu et al e Benassai-Dalmanu et al fanno invece ricorso a dati geospazili raster e a localizzazioni di opportunità derivate da inventari di punti di interesse \cite{luo2003,wu2025,benassai2026}
+Gli studi di Wu et al e Benassai-Dalmanu et al fanno invece ricorso a dati geospaziali raster e a localizzazioni di opportunità derivate da inventari di punti di interesse \cite{luo2003,wu2025,benassai2026}
 
 \subsection{Calcolo dei costi di spostamento}
 
@@ -210,7 +194,7 @@ Se un arco ha lunghezza $L_e$ e velocità di percorrenza $v_e>0$, il suo costo t
     c_e =\frac{L_e}{v_e}
 \end{equation}
 
-Il costo finale di un percorso è ottenibile sommando i costi degli archi che lo compongono. Tariverdi et al. applicano questo approccio alla rete stradale, partendo dalla sua costruzione con OpenStreetMap con OSMnx e utilizzando successivamente l'algorimo di Dijkstra per stimare i tempi di viaggio. Lo studio non si liminato allo studio delle strade in scenari quotidiani ma integrano scenari di perturbazione nei quali alcuni archi possono essere rallentati o resi impraticabili \cite{tariverdi2023}.
+Il costo finale di un percorso è ottenibile sommando i costi degli archi che lo compongono. Tariverdi et al. applicano questo approccio alla rete stradale, partendo dalla sua costruzione con OpenStreetMap e utilizzando successivamente l'algorimo di Dijkstra per stimare i tempi di viaggio. Lo studio non si liminato allo studio delle strade in scenari quotidiani ma integrano scenari di perturbazione nei quali alcuni archi possono essere rallentati o resi impraticabili \cite{tariverdi2023}.
 
 \subsubsection{Superfici raster di frizione} 
 Come accennato in precedenza non vi è un solo approccio per calcolare i costi di un viaggio. Un esempio alternativo è l'approccio nel quale il territorio viene rappresentato mediante una griglia raster. A ogni cella viene associato un costo di attraversamento.
@@ -228,10 +212,10 @@ Si indichi con $t_{ij}$ il tempo stimato dall'origine $i$ alla destinazione $j$,
     T=(t_{ij})_{i\in I,\,j\in J}
 \end{equation}
 
-La matrice costituisce un elemento comune a numerose metriche. A seconda dell'indicatore, i tempi possono essere utilizzati per individuare la destinazione più vicina, contare le opportunità raggiungibili, ponderare il contributo oppure definire vacini di domanda e offerta.
+La matrice costituisce un elemento comune a numerose metriche. A seconda dell'indicatore, i tempi possono essere utilizzati per individuare la destinazione più vicina, contare le opportunità raggiungibili, ponderare il contributo oppure definire bacini di domanda e offerta.
 Bisogna specificare come vengono trattate le destinazioni non raggiungibili e mantenere coerenti modalità di trasporto, unità temporali e scenario di calcolo.
 
-\subsection{Formulazione e calcolo delle matriche}
+\subsection{Formulazione e calcolo delle metriche}
 
 \subsubsection{Tempo di viaggio minimo}
 
@@ -258,7 +242,7 @@ Una formulazione generale delle misure gravitazionali considera la quantità di 
     A_i^{G}=\sum_{j\in J}S_j f(t_{ij}),
 \end{equation}
 
-in cui $S_j$ rappresenta la quantità di opportunità o offerta nella destinazione $j$, mentre $f$ è una funzione generalmente decrescente del tempo di viaggio. Due forme comuni sono la potenza negetiva, $f(t) = t^{-\alpha}$, e l'esponenziale negativa , $f(t)=e^{-\beta t}$, con parametri che regolano il decadimento del peso attribuito alle destinazioni.
+in cui $S_j$ rappresenta la quantità di opportunità o offerta nella destinazione $j$, mentre $f$ è una funzione generalmente decrescente del tempo di viaggio. Due forme comuni sono la potenza negativa, $f(t) = t^{-\alpha}$, e l'esponenziale negativa , $f(t)=e^{-\beta t}$, con parametri che regolano il decadimento del peso attribuito alle destinazioni.
 
 Hansen rappresenta un riferimento classico per le misure di accessibilità potenziale. Dalvi e Martin evidenziano l'importanza di considerare la sensibilità dei risultati alle scelte relative ai parametri e alle unità territoriali \cite{hansen1959,dalvi1976}. 
 Nell'applicazione delle funzioni occorre specificare anche il trattamento dei tempi nulli o non finiti, soprattutto nel caso della potenza negativa.\cite{hansen1959,dalvi1976}
@@ -266,7 +250,7 @@ Nell'applicazione delle funzioni occorre specificare anche il trattamento dei te
 \subsubsection{Concorrenza tra domanda e offerta: 2SFCA}
 
 Il metodo \textit{Two-Step Floating Catchment Area} considera sia la disponibilità delle risorse sia la popolazione che può raggiungerle. Lou e Wang lo applicano alla distribuzione dei medici di assistenza primaria nell'area di Chicago \cite{luo2003}
-Nel primo passaggio, per ogni localizzazione $j$  si calcola il rapporto tra la quantità dell'offerta $S_j$ e la popolazione nella zona di origine $k$ e $\tau$ la soglia temporale che defi:
+Nel primo passaggio, per ogni localizzazione $j$  si calcola il rapporto tra la quantità dell'offerta $S_j$ e la popolazione nella zona di origine $k$ e $\tau$ la soglia temporale che defisce il raggio del:
 
 \begin{equation}
     R_j =\frac{S_j}{\displaystyle\sum_{k:\,t_{kj}\le\tau}P_k}.
@@ -278,7 +262,7 @@ Nel secondo passaggio, per ogni origine $i$ si sommano i rapporti delle localizz
 \end{equation}
 
 L'indicatore rappresenta la disponibilità potenziale dell'offerta in rapporto alla domanda. Non equivale all'effettiva disponibilità di una prestazione, nè simula l'assegnazione dei singoli utenti alle strutture.
-Lou e Wang mostrano inoltre che il 2SFCA può essere interpretato come caso particolare di una misura gravitazionale con competizione quando si utilizza una funzione di impedimento binaria \cite{luo2003}
+Luo e Wang mostrano inoltre che il 2SFCA può essere interpretato come caso particolare di una misura gravitazionale con competizione quando si utilizza una funzione di impedimento binaria \cite{luo2003}
 
 \subsubsection{Modelli probabilistici di scelta e tempo atteso}
 
@@ -316,5 +300,24 @@ Prendiamo come esempio una rete pedonale dove ogni tratto ha un costo in minuti,
 
 
 \end{comment}
-\subsubsection{Caso reale}
-Per comprendere meglio la metrica prendiamo un caso di studi reale
+
+\section{I servizi Primari}
+Abbiamo parlato fin'ora di servizi primari, ma quali sono i servizi compresi?
+
+In letteratura, vengono spesso mappati come Punti di Interesse (\textit{Points of Interest} -- POI). La classificazione delle destinazioni dipende dagli obiettivi dello studio e dalle fonti informative disponibili.
+
+Wu et al, nell'analisi globale dell'accessibilità alle necessità e ai servizi quotidiani, adottano sei categorie operative di infrastrutture: \emph{Healthcare}, \emph{Education}, \emph{Living}, \emph{Entertainment}, \emph{pubblic transit} e \emph{Working}. La seguente descrizione riprende tali macro-categorie: \cite{wu2025}
+\begin{enumerate}
+    \item \textbf{Servizi abitativi e commerciali di base (\textit{Living})}: mercati alimentari, supermercati, negozi di beni di prima necessità e servizi postali o bancari 
+    \item \textbf{Assistenza sanitaria (\textit{Healthcare})}: ospedali, cliniche, ambulatori e presidi medici 
+    \item \textbf{Istruzione (\textit{Education})}: scuole di ogni ordine e grado, asili e strutture formative 
+    \item \textbf{Spazi verdi, cultura e svago (\textit{Entertainment})}: parchi urbani pubblici, aree verdi ricreative, impianti sportivi e luoghi di aggregazione 
+    \item \textbf{Trasporto pubblico (\textit{Public transit})}: fermate di autobus, tram, stazioni ferroviarie e metropolitane;
+    \item \textbf{Lavoro (\textit{Working})}: luoghi di impiego, uffici e poli produttivi .
+\end{enumerate}
+
+\section{Mappature tra categorie e sorgenti di dati}
+
+La classifica appena presentata è di per se indipendente dalla sorgente di dati utilizzata, infatti ciascuna sorgente richiede una mappatura esplicita tra le categorie native del detaset e le categorie concettuali adottate.
+Per dare un esempio Wu et al. partono da circa 2000 categorie a granularità fine dei database di POI e le riassegnano alle sei macro-categorie \cite{wu2025}.
+Nell'implementazione basata su OpenStreetMap la mappatura si esprime attraverso le coppie chiave-valore del database (per esempio: [highway=residential, highway=cycleway] oppure: [building=house, landuse=forest]) e la granularità di questa corrispondenza costituisce un parametro esplicito della pipeline di estrazione.
